@@ -1,4 +1,4 @@
-# KIKOBOT
+# MATHYSLOLBOTS
 If you need help for the bot, you can join 
 [ https://discord.gg/TabhYGhx9r ] on discord.
 USE CODE XBX  #ad
