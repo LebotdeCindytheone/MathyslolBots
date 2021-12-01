@@ -17,12 +17,12 @@ else:
   print("error device in the file")
   sys.exit()
 
-os.system('pip install -U XBXBot')
+os.system('pip install -U XBXBOT')
 os.system('clear')
 
-import FNBOT2
+import XBXBOT
 
-client = XBXBot.PartyBot(
+client = XBXBOT.PartyBot(
   device_id=env_vars['DEVICE_ID'],
   account_id=env_vars['ACCOUNT_ID'],
   secret=env_vars['SECRET']
