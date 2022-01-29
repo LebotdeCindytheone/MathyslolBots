@@ -5,6 +5,8 @@ import uvloop
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
+
+
 env_vars = {}
 if os.path.isfile('.device'):
     with open('.device') as f:
@@ -22,14 +24,29 @@ os.system('clear')
 
 import XBXBOT
 
-client = XBXBOT.PartyBot(
-  device_id=env_vars['DEVICE_ID'],
-  account_id=env_vars['ACCOUNT_ID'],
-  secret=env_vars['SECRET']
+
+try:
+  client = XBXBOT.PartyBot(
+    device_id=env_vars['DEVICE_ID'],
+    account_id=env_vars['ACCOUNT_ID'],
+    secret=env_vars['SECRET']
 )
 
+except:
+
+  client = XBXBOT.PartyBot(
+    device_id=os.getenv('DEVICE_ID'),
+    account_id=os.getenv('ACCOUNT_ID'),
+    secret=os.getenv('SECRET')
+)
+  
 try:
     client.run()
 except Exception as e:
     print(e)
     print("Can't login because your device auths is probably wrong.")
+    print("are you sure you have put yourr IDs in secrets env or in .device  file ?")
+
+
+
+
