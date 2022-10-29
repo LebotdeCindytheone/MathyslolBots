@@ -3,6 +3,9 @@ import os
 import sys
 import uvloop
 
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+
 env_vars = {}
 if os.path.isfile('.device'):
     with open('.device') as f:
@@ -12,10 +15,10 @@ if os.path.isfile('.device'):
             key, value = line.strip().split('=', 1)
             env_vars[key] = value.replace("\"", "")
 else:
-  print("error device in the file")
+  print("error, are you sure you have put the ids correctly in the file .device ?")
   sys.exit()
 
-os.system('pip install -U XBXBOT')
+os.system('python3 -m pip install --upgrade XBXBOT')
 os.system('clear')
 
 import XBXBOT
@@ -27,9 +30,8 @@ client = XBXBOT.XBXBOT(
 )
 
 try:
-    client.run()
+  client.run()
 except Exception as e:
-    print(e)
-    print("Can't login because your device auths is probably wrong.")
-
-
+  print(e)
+  print("Can't login because your device auths is probably wrong.")
+  print("are you sure you have put your IDs in secrets env or in .device  file ?")
